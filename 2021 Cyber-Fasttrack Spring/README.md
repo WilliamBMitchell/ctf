@@ -2,7 +2,7 @@
 
 Writeups for various challenges, including ones I did not actually solve during the competition.
 
-![Results](results.png)
+![Results](results.PNG)
 
 ## Challenge Difficulties
 * Easy - 100pts
