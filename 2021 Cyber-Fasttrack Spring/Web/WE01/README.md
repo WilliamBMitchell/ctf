@@ -16,7 +16,7 @@ Towards the end of the competition the following hint was released:
 
 If we paste the text into the developer console we are presented with the flag
 
-![console](console.png)
+![console](console.PNG)
 
 The flag is **unicode+obfuscation=js*fun**.
 
