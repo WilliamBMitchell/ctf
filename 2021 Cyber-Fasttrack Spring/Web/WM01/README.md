@@ -31,7 +31,7 @@ window.onload = function() {
 
 The important thing to notice is the `/new-images` directory. If we navigate there we find 6 photos. The below photo tells us where to go next:
 
-![miihome](miihome.jpg =250x)
+<img src="miihome.jpg" width="350" >
 
 If we navigate to `mii-home` we find a login portal. The portal requires an email and a password. We have the email `rupert@get-vizual.med.ia` from the bottome of the home page.
 
@@ -50,6 +50,6 @@ For the password, we take a look at the source code:
 ```
 The text `My office, guess my fav city!` stands out. In another photo there is a pillow with `NEW YORK` written on it:
 
-![pillow](pillow.jpg =250x)
+<img src="pillow.jpg" width="350" >
 
 
