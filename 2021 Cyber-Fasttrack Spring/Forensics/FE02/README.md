@@ -10,7 +10,8 @@ Dig (Domain Information Groper) is a command line utility that performs DNS look
 
 The output is:
 
-```; <<>> DiG 9.16.8-Debian <<>> cfta-fe02.allyourbases.co
+```
+; <<>> DiG 9.16.8-Debian <<>> cfta-fe02.allyourbases.co
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 23658
@@ -31,7 +32,8 @@ cfta-fe02.allyourbases.co. 60	IN	A	143.204.33.51
 ;; Query time: 12 msec
 ;; SERVER: 192.168.0.1#53(192.168.0.1)
 ;; WHEN: Sat Apr 17 13:10:03 EDT 2021
-;; MSG SIZE  rcvd: 146```
+;; MSG SIZE  rcvd: 146
+```
 
 
 To query all DNS record types, we can specify the ANY option. The ANY option will include all available record types in the output:
@@ -40,7 +42,8 @@ To query all DNS record types, we can specify the ANY option. The ANY option wil
 
 The output is:
 
-```; <<>> DiG 9.16.8-Debian <<>> cfta-fe02.allyourbases.co ANY
+```
+; <<>> DiG 9.16.8-Debian <<>> cfta-fe02.allyourbases.co ANY
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8702
@@ -62,6 +65,7 @@ cfta-fe02.allyourbases.co. 60	IN	A	143.204.33.34
 ;; Query time: 128 msec
 ;; SERVER: 192.168.0.1#53(192.168.0.1)
 ;; WHEN: Sat Apr 17 13:13:12 EDT 2021
-;; MSG SIZE  rcvd: 184```
+;; MSG SIZE  rcvd: 184
+```
 
 We see that the flag is **unlimited_free_texts**.
