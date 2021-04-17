@@ -12,7 +12,7 @@ We are presented with the image:
 
 The first thing I did was take a look at the image metadata by using exiftool. Exchangeable Image File Format (EXIF) data is a standard that defines specific information related to an image or other media captured by a digital camera. It is capable of storing such information as camera exposure, date/time the image was captured, and even GPS location. Sometimes information can be hidden with EXIF data. Exiftool provides a command line application for reading metadata. I used it on this image and found the flag:
 
-`exiftool fm01.jpg'
+`exiftool fm01.jpg`
 
 ```
 ExifTool Version Number         : 12.13
