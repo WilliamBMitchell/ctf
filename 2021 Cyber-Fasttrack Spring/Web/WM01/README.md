@@ -35,7 +35,7 @@ The important thing to notice is the `/new-images` directory. If we navigate the
 
 If we navigate to `mii-home` we find a login portal. 
 
-<img src="portal.jpg" width="350" >
+<img src="portal.png" width="350" >
 
 The portal requires an email and a password. We have the email `rupert@get-vizual.med.ia` from the bottome of the home page.
 
@@ -55,6 +55,6 @@ For the password, we take a look at the source code:
 ```
 The text `My office, guess my fav city!` stands out. In another photo there is a pillow with `NEW YORK` written on it:
 
-<img src="pillow.jpg" width="350" >
+<img src="pillow.jpeg" width="350" >
 
 
