@@ -2,7 +2,7 @@
 
 Writeups for various challenges, including ones I did not actually solve during the competition.
 
-Ranking at the buzzer: 15/1590.
+![Results](results.png)
 
 ## Challenge Difficulties
 * Easy - 100pts
