@@ -1,3 +1,3 @@
-## ctf
+# ctf
 
 CTF write-ups.
