@@ -2,6 +2,8 @@
 
 Writeups for various challenges, including ones I did not actually solve during the competition.
 
+Here are my results:
+
 ![Results](results.PNG)
 
 ## Challenge Difficulties
