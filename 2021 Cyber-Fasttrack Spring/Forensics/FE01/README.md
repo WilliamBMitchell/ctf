@@ -10,7 +10,7 @@ After initially attempting to simply open the .ost file in Outlook (and it not w
 
 <img src="ost_viewer.png" width="650" >
 
-I perused the mailbox directories a little bit and came across an interesting looking string in a meeting withing the Calendar:
+I perused the mailbox directories a little bit and came across an interesting looking string in a meeting withing the Calendar section:
 
 <img src="calendar_pass.png" width="650" >
 
