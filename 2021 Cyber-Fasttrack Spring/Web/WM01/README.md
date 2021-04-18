@@ -57,4 +57,13 @@ The text `My office, guess my fav city!` stands out. In another photo there is a
 
 <img src="pillow.jpeg" width="350" >
 
+If we use the credentials of email `rupert@get-vizual.med.ia` and password `newyork` we get past the portal. The resulting page allows us to move between 4 cameras:
+
+<img src="frontroom.png" width="350" >
+
+If we go to the `Office` we see the Wi-Fi password written on a notepad. This password is the flag.
+
+<img src="office.png" width="350" >
+
+The flag is **XGHEV7HGEV**.
 
