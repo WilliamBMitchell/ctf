@@ -33,7 +33,7 @@ The important thing to notice is the `/new-images` directory. If we navigate the
 
 <img src="miihome.jpg" width="350" >
 
-If we navigate to `mii-home` we find a login portal. 
+If we navigate to `/mii-home` we find a login portal. 
 
 <img src="portal.png" width="350" >
 
