@@ -22,7 +22,7 @@ I double-clicked on the attachment and it opened up. I tried to extract the .jpg
 
 ![protected](protected.png)
 
-I entered the string from the Calendar meeting and the .zip file unzipped successfully.
+The email containing the flag.zip file referenced a Friday meeting on the Calendar, which hinted back to the string I identifed previously. I entered the string from the Calendar meeting and the .zip file unzipped successfully.
 
 <img src="flag.jpg" width="450" >
 
