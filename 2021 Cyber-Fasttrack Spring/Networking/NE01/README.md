@@ -8,7 +8,7 @@ Note: The target has many open ports - only one is the correct one. The correct 
 
 **Step 1**: Scan the domain with nmap. Nmap is a free and open-source network scanner capable of discovering hosts and services on a computer network by sending packets and analyzing the responses.
 
-```
+```console
 root@osboxes:~/Downloads/fm01# nmap cfta-ne01.allyourbases.co
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-04-17 13:36 EDT
 Nmap scan report for cfta-ne01.allyourbases.co (52.210.101.44)
@@ -26,7 +26,7 @@ The nmap scan identified that port 1061 was open.
 
 **Step 2**: Interact with the open port using netcat. Netcat is a computer networking utility for reading from and writing to network connections using TCP or UDP. It is often referred to as a " TCP/IP Swiss Army Knife"
 
-```
+```console
 root@osboxes:~/Downloads/fm01# nc cfta-ne01.allyourbases.co 1061
 ID: ne01
 Flag: Nmap_0f_the_W0rld!
