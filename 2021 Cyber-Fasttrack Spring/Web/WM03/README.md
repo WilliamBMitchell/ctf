@@ -4,7 +4,7 @@ Visit the site at https://cfta-wm03.allyourbases.co and find a way to bypass the
 
 ## Solution
 
-The main page of the website asks us for a password to login.
+The main page of the website asks us for a password to login:
 
 <img src="wm03_login.png" width="350">
 
@@ -28,7 +28,7 @@ If we inspect the source code we discover the login function running on the back
         -->
 ```
 
-This is a case of magic hashes, which take advantage of a loose equivalency check. That is, in PHP, the `$hash` value of `0e747135815419029880333118591372` will be interpreted as an integer, specifically 0 to the power of 747135815419029880333118591372 when being compared with `==` instead of `===`. The `===` would require strict string equivalency, but since the function uses `==`, our goal is to produce another hash that begins with `0e` and only contains digits thereafter.
+This is a case of magic hashes, which take advantage of a loose equivalency check. That is, in PHP, the `$hash` value of `0e747135815419029880333118591372` will be interpreted as an integer, specifically 0 to the power of 747135815419029880333118591372 when being compared with `==` instead of `===`. The `===` would require strict string equivalency, but since the function uses `==`, our goal is to produce another hash that begins with `0e` and only contains digits thereafter, so that both hashes will be equal to 0 when compared via `==` and the function will evaluate to true, returning the flag.
 
 We can write a python script to find such a password for us. We'll have to use the provided salt and append characters to it until we find a string that produces a magic hash via the `md5` function.
 
@@ -47,9 +47,8 @@ found = False
 while not found:
     for j in range(50):
         for possible_password in itertools.permutations(alphabetsoup,j):
-            sub = starter + ''.join(possible_password)
-            #print sub
-            check = hashlib.md5(sub).hexdigest()
+            temp = starter + ''.join(possible_password)
+            check = hashlib.md5(temp).hexdigest()
             if _rex.match(check) != None:
                 print "You're a hero"
                 print "The password is: ", ''.join(possible_password)
