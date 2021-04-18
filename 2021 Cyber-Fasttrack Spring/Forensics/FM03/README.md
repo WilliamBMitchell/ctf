@@ -85,11 +85,13 @@ We open up VeraCrypt and enter the password:
 
 ![veracrypt](mount.png)
 
-We successfully decrypted the volume, double-clicking reveals the volume contained a folder called `Flag`:
+We successfully decrypted the volume: 
 
 ![decrypted](decrypted.png)
 
-![folder]volume.png)
+Double-clicking reveals the volume contained a folder called `Flag`:
+
+![folder](volume.png)
 
 Double-clicking the folder reveals a `flag.txt` text file:
 
