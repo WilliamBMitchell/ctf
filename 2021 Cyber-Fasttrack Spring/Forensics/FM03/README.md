@@ -79,4 +79,24 @@ Started: Sun Apr 18 14:46:45 2021
 Stopped: Sun Apr 18 15:05:27 2021
 ```
 
-After approximately 20 minutes, HashCat successfully cracked the hash and gave us the password **rewdwings**.
+After approximately 20 minutes, HashCat successfully cracked the hash and gave us the password **redwings**.
+
+We open up VeraCrypt and enter the password:
+
+![veracrypt](mount.png)
+
+We successfully decrypted the volume, double-clicking reveals the volume contained a folder called `Flag`:
+
+![decrypted](decrypted.png)
+
+![folder]volume.png)
+
+Double-clicking the folder reveals a `flag.txt` text file:
+
+![file](file.png)
+
+Opening the text file reveals the flag:
+
+![flag](flag.png)
+
+The flag is **Us3_5tr0ng_P@55w0Rds!**
