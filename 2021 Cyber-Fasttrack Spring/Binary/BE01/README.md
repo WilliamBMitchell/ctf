@@ -4,6 +4,8 @@ Download the file and find a way to get the flag.
 
 Contents: chicken.pdf
 
+## Solution
+
 The provided `chicken.pdf` was a `pdf` that simply contained an image of a chicken
 
 <img src="chicken.png" width="400">
@@ -23,7 +25,7 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 6478601       0x62DB09        End of Zip archive, footer length: 22
 ```
 
-The `pdf` had a zip file named `egg.zip` embedded within it. I extracted the embedded files with the command:
+The `pdf` had a zip file named `egg.zip` embedded within it. I extracted the embedded files with the following command:
 
 ```console
 root@osboxes:~/Downloads/be01# binwalk --dd='.*' chicken.pdf 
@@ -42,7 +44,7 @@ root@osboxes:~/Downloads/be01/_chicken.pdf.extracted# file *
 86997.zlib:  zlib compressed data
 ```
 
-This told me that the file named `48` was `egg.zip`. I renamed it to `egg.zip` for ease of identification. First I tried to unzip using `unzip` but got the following:
+This told me that the file named `48` was `egg.zip`. I renamed it to `egg.zip` for ease of identification. I then tried to unzip the zip file using `unzip` but got the following error message:
 
 ```console
 root@osboxes:~/Downloads/be01/_chicken.pdf.extracted# unzip egg.zip 
@@ -52,7 +54,7 @@ error [egg.zip]:  missing 72 bytes in zipfile
 error: invalid zip file with overlapped components (possible zip bomb)
 ```
 
-I then tried using `7zip` which was able to repair the zip archive:
+I next tried using `7zip` which was able to repair the zip archive:
 
 ```console
 root@osboxes:~/Downloads/be01/_chicken.pdf.extracted# 7z x egg.zip 
@@ -125,6 +127,8 @@ Archive:  chicken.zip
   ```
   
   This `pdf` contained the flag:
+  
+  <img src="egg.png" width="400">
   
   
   The flag is **wh1ch_came_f1rst?**.
