@@ -8,7 +8,7 @@ Contents: fe03.tar.gz
 
 Unzipping the fe03.tar.gz file we find a whole of bunch of directories with names consisting of numbers and letters.
 
-```
+```console
 root@osboxes:~/Downloads/fe03# ls
 1f30c30bb8115de38e4435bd872ba4fdd75d4e42c9ef64d73ed2934579e186ab
 20f27a62bd4b6360e6d71ee3b6e3d4e23d27f8316853b5f115134dc496b76921
@@ -33,7 +33,7 @@ repositories
 
 If we cd into any of these directories we find 3 files: `json`, `layer.tar`, and `VERSION`. I started unzipping the tar files and quickly found the one containing the flag:
 
-```
+```console
 root@osboxes:~/Downloads/fe03/20f27a62bd4b6360e6d71ee3b6e3d4e23d27f8316853b5f115134dc496b76921# ls
 home  json  layer.tar  VERSION
 root@osboxes:~/Downloads/fe03/20f27a62bd4b6360e6d71ee3b6e3d4e23d27f8316853b5f115134dc496b76921# cd home
