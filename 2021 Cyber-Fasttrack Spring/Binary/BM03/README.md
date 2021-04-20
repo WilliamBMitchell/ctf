@@ -6,7 +6,7 @@ Contents: flag
 
 ## Solution
 
-When I first rang the `flag` program it was apparent that the program printed the flag, however there was a catch, only part of the flag was printed.
+When I first ran the `flag` program it was apparent that the program printed the flag, however there was a catch: only part of the flag was printed.
 
 ```console
 root@osboxes:~/Downloads/bm03# ./flag
@@ -21,14 +21,22 @@ I pulled the program up in Interactive DisAssembler (IDA) to see if I could make
 
 <img src="bm03_main.png" width="550">
 
-I took a look at both the `main` function and the `output` functio and determined the the program was printing only 2 of 6 lines of the flag. In the main function I decided to apply a patch where the number of rows was set to 2, changing it to 6.
+I took a look at both the `main` function and the `output` function and determined that the program was printing only 2 of 6 lines of the flag. In the main function I decided to apply a patch where the number of rows was set to 2, changing it to 6.
 
 Initially, 2 rows were printed by the program:
 
 
+<img src="rows_2.png" width="550">
+
 I applied a patch to turn the 2 into a 6:
 
+
+<img src="patch.png" width="550">
+
 Now, in theory, all 6 rows will be printed:
+
+
+<img src="rows_6.png" width="550">
 
 I applied the patch and re-ran the program:
 
