@@ -14,7 +14,7 @@ The first thing I did was take a look at the image metadata by using exiftool. E
 
 `exiftool fm01.jpg`
 
-```
+```console
 ExifTool Version Number         : 12.13
 File Name                       : fm01.jpg
 Directory                       : .
