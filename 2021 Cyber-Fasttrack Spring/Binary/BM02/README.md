@@ -16,16 +16,18 @@ root@osboxes:~/Downloads/bm02#
 
 Based on the ouput I suspected this challenge might be solveable via patching. I opened it in Interactive DisAssembler (IDA) and went to the main function:
 
-<img src="main_bm02" width="450">
+<img src="main_bm02.png" width="650">
 
 It was readily apparent that if we re-directed the program to execute the block on the left that called the `printFlag` function as opposed to the block on the right that printed `I'm not going to make it that easy for you` we would probably get the flag. So I did just that.
 
-I modifed the `jnz` instruction to be `jz` in order to modify the block the program would execute.
+I modifed the `jnz` instruction to be `jz` in order to modify which block the program would execute.
 
-I changed this:
+That is, I changed this:
+
 <img src="jnz.png" width="450">
 
 To this:
+
 <img src="jz.png" width="450">
 
 I applied the patch to the program and ran it again:
