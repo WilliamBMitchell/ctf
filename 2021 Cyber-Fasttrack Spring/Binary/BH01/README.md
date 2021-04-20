@@ -6,7 +6,7 @@ Contents: program
 
 ## Solution
 
-I believe I solved this one in an unintended manner. I first ran the program to see what I was wording with:
+I believe I solved this one in an unintended manner. I first ran the program to see what I was working with:
 
 ```console
 root@osboxes:~/Downloads/bh01# ./bh01
@@ -32,7 +32,7 @@ Decrypt:
 
 <img src="decrypt.png" width="350">
 
-I noticed that, when execute, the program only ran through what I had guessed was the encrypt function. I decided to patch the final instruction of the encrypt function to re-direct the program into what I had guessed was the decrypt function.
+I noticed that, when executed, the program only ran through what I had guessed was the encrypt function. I decided to patch the final instruction of the encrypt function to re-direct the program into what I had guessed was the decrypt function.
 
 <img src="jns.png" width="250">
 
@@ -49,7 +49,7 @@ asdf
 Segmentation fault
 ```
 
-I got a `Segmentation fault`. Since I was pretty confident I had applied the patch correctly I decided to run the program in gdb to see if the flag might be located in memory. Sure enough:
+I got a `Segmentation fault`. Since I was pretty confident I had applied the patch correctly I decided to run the program in `gdb` to see if the flag might be located in memory. Sure enough:
 
 <img src="bh01.png" width="550">
 
