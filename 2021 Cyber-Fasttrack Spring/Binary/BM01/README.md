@@ -15,7 +15,7 @@ root@osboxes:~/Downloads/bm01# ./bm01
 неверный.
 ```
 
-If we go to Google Translate we find that `Какой пароль？` is Russian for `What password?` and `неверный` translates to `incorrect'. This led me suspect that if we found the correct password we could get the flag.
+If we go to Google Translate we find that `Какой пароль？` is Russian for `What password?` and `неверный` translates to `incorrect`. This led me suspect that if we found the correct password we could get the flag.
 
 I opened the program in Interactive DisAssembler (IDA) and to get a feel for the program flow. Within the `main` function I noticed a call to `strcmp` which I guessed was comparing my input to the desired input. Directly beneath this I noticed that there was a block that was skipped over for an incorrect input. I guessed that if I simply directed program flow through that block I might get the flag:
 
@@ -23,10 +23,13 @@ I opened the program in Interactive DisAssembler (IDA) and to get a feel for the
 
 I converted the `jnz` jump found right after the call to `strcmp`:
 
+<img src="jnz_bm01.png" width="550">
 
 To `jz`:
 
-I applied the patch to the input file and then re-ran it. This time, as long as I input at string that was NOT the correct password, the program would flow through the block that required a correct password:
+<img src="jz_bm01.png" width="550">
+
+I applied the patch to the input file and then re-ran it. This time, as long as I provided a string that was NOT the correct password the program would flow through the block that it had skipped the first time I ran it :
 
 ```console
 root@osboxes:~/Downloads/bm01# ./bm01_ida
