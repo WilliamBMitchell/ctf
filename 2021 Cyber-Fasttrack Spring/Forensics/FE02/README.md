@@ -10,7 +10,7 @@ Dig (Domain Information Groper) is a command line utility that performs DNS look
 
 The output is:
 
-```
+```console
 ; <<>> DiG 9.16.8-Debian <<>> cfta-fe02.allyourbases.co
 ;; global options: +cmd
 ;; Got answer:
@@ -42,7 +42,7 @@ To query all DNS record types, we can specify the ANY option. The ANY option wil
 
 The output is:
 
-```
+```console
 ; <<>> DiG 9.16.8-Debian <<>> cfta-fe02.allyourbases.co ANY
 ;; global options: +cmd
 ;; Got answer:
