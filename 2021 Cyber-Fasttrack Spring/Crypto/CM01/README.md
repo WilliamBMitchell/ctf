@@ -6,7 +6,7 @@ Contents: code.png, frame.png
 
 ## Solution
 
-I didn't figure this one out during the competition, but it turns out when you XOR `code.png` with `frame.png` you get a new image that is a valid QR code.
+I didn't figure this one out during the competition, but it turns out that when you XOR `code.png` with `frame.png` you get a new image that is a valid QR code.
 
 Initially running `zbarimg` against `frame.png` gave us the following message:
 
