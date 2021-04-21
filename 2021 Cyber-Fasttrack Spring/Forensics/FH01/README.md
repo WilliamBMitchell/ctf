@@ -8,13 +8,13 @@ Contents: fh01.pcapng
 
 I did not figure this one out during the competition but found a relatively intuitive means of getting the flag after the fact.
 
-Looking through the pcap I honed in on `udp.stream eq2` due to the presence of a `1.jpg` and a `JFIF` at the beginning of the stream. This hinted that there was some kind of image being transmitted over UDP.
+Looking through the pcap I honed in on `udp.stream eq 2` due to the presence of a `1.jpg` and a `JFIF` at the beginning of the stream. This hinted that there was some kind of image being transmitted over UDP.
 
 Suspecting that there would be a zip file containing the jpg I took the [file signature](https://en.wikipedia.org/wiki/List_of_file_signatures) bytes for a zip file, `50 4b 03 04` and searched for them in the `raw` data of the UDP stream.
 
 AAAANNNNNDDDDD I found it:
 
-<img src="zip_header.png" width="650">
+<img src="zip_header.png" width="850">
 
 The zip file was split into multiple packets. I copied 32 of them into a text file. I then made a short python script to strip newlines from the file to yield a single byte stream:
 
@@ -76,8 +76,8 @@ Open Errors: 1
 Sub items Errors: 1
 ```
 
-When I constructed the zip file from 32 packets, it was enough to yield the flag:
+When I constructed the zip file from 32 packets (which left quite a few packets not included!), it was enough to yield the flag:
 
-<img src="5.jpg" width="650">
+<img src="5.jpg" width="450">
 
 The flag is **C4tch1ng_H0n3y_p0Ts_w1TH_a_Sh4rk!**
