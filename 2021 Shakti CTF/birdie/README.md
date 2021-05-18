@@ -12,7 +12,7 @@ root@osboxes:~/Documents/shaktiCTF2021# checksec birdie
 
 If we open the binary in ghidra, a couple things are clear. It is apparent that there is a format string vulnerability (since our input from the first prompt is fed to `printf`) and that there is a `/bin/sh` available within the binary:
 
-<img src="function.png" width=350>
+<img src="function.png" width=450>
 
 
 ```console
@@ -24,7 +24,16 @@ Enter the payload
 asdf
 ```
 
-<img src="binsh.png" width=350>
+<img src="binsh.png" width=300>
+
+```console
+gdb-peda$ find "/bin/sh"
+Searching for '/bin/sh' in: None ranges
+Found 3 results, display max 3 items:
+birdie : 0x400936 --> 0x68732f6e69622f ('/bin/sh')
+birdie : 0x600936 --> 0x68732f6e69622f ('/bin/sh')
+  libc : 0x7ffff7f66156 --> 0x68732f6e69622f ('/bin/sh')
+```
 
 
 Here is my attempt at an exploit script. It ended up not working as expected, which I anticipate was due to the presence of null buytes. I tried to url-encode the bytes but this ultimately lead to stack smashing instead of the flag.
