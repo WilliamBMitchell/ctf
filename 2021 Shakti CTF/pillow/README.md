@@ -1,4 +1,4 @@
-The name of the problem is a hint to the Python Imaging Library (PIL) also known simply as Pillow.
+The name of the problem is a hint to use the Python Imaging Library (PIL) also known simply as Pillow.
 
 We are provided 3000 pixels in a zip file named `60x50`. The pixel files are numbered from 1 to 3000 and are all JPGs. We can write a python script to stitch the pixels together and display the resulting image:
 
@@ -18,4 +18,4 @@ new_im.show()
 
 Running the script yields the following JPG:
 
-<img src="pillow.png" width=400>
+<img src="pillow.png" width=500>
