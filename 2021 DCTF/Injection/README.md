@@ -16,6 +16,15 @@ We can pick from a boatload of SSTI payloads available from [Payload All the Thi
 
 <img src='popen.png' width=700>
 
-I poked around a little bit and came across teh following (`{{config.__class__.__init__.__globals__['os'].popen('cat ./lib/security.py').read()}}`):
+I poked around a little bit and came across the following (`{{config.__class__.__init__.__globals__['os'].popen('cat ./lib/security.py').read()}}`):
 
 <img src='security_py.png' width=700>
+
+Now, if we add a double equals to the front, reverse it, and the base64 the string we uncover the flag:
+
+```console
+root@osboxes:~/Downloads# echo '==QfsFjdz81cx8Fd1Bnbx8lczMXdfxGb0snZ0NGZ' | rev | base64 -d
+dctf{4ll_us3r_1nput_1s_3v1l}
+```
+
+The flag is **dctf{4ll_us3r_1nput_1s_3v1l}**.
