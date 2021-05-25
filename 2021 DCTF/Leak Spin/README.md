@@ -2,4 +2,4 @@ The hint tells us that the CTF organizers only control a limited amount of space
 
 <img src='leak_spin.PNG' width=500>
 
-The flag is **dctf{I_L1k3_L1evaAn_P0lkk4}
+The flag is **dctf{I_L1k3_L1evaAn_P0lkk4}**
