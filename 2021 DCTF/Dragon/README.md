@@ -2,4 +2,4 @@ Stegonography challenge. If we flipped through the bit planes via [stegonline](h
 
 <img src='hidden_in_plain_site.png' width=600>
 
-The flag is **dctf{N02_Y0u_s3e_m3}**.
+The flag is **dctf{N0w_Y0u_s3e_m3}**.
