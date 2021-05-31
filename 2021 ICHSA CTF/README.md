@@ -1,0 +1,1 @@
+ICHSA CTF was put on at the Third Israeli Conference (2021) on Hardware and Side-Channel Attacks. As one might imagine, the CTF focused on hardware and side-channel attacks and featured a number of challenging problems.
