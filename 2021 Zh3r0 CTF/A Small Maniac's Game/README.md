@@ -9,7 +9,7 @@ This challenge contained a series of puzzles to be solved with assembly code. We
 
 Here is the page we start at:
 
-<img src='game.PNG' width=500>
+<img src='game.png' width=500>
 
 Here is the MAN page containing descriptions of all available commands:
 
