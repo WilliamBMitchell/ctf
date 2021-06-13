@@ -13,7 +13,7 @@ Here is the page we start at:
 
 Here is the MAN page containing descriptions of all available commands:
 
-<img src='man-page.png' width=500>
+<img src='man-page.png' width=800>
 
 Below are my solutions for each level.
 
