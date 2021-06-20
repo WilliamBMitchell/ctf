@@ -8,7 +8,7 @@ P.S: This chall was made by an anonymous CS Club member :)
 
 ## Solution ##
 
-See [Extended Fibonacci Sequence New](Extended Fibonacci Sequence New.pdf) for the problem description:
+See [Extended Fibonacci Sequence New](Extended+Fibonacci+Sequence+New.pdf) for the problem description:
 
 I took the approach of storing the results for all possible values of `n` in a file and then reading them from the file during interaction with the server. I pulled a speedy method of calculating fibonacci numbers using linear algebra from [here](https://stackoverflow.com/questions/18172257/efficient-calculation-of-fibonacci-series).
 
@@ -31,7 +31,6 @@ for i in range(1001):
     fibonacci_numbers.append(fib(i))
 
 fibonacci_numbers[0] = 0
-#print fibonacci_numbers[0:10]
 
 S_n = []
 current_S_n = ''
@@ -41,8 +40,6 @@ for j in range(len(fibonacci_numbers)):
         val = val[:-1]
     current_S_n += val
     S_n.append(current_S_n)
-
-#print S_n[:10]
 
 # ALL RESPONSES STORED IN extended-fib-responses.txt
 '''
