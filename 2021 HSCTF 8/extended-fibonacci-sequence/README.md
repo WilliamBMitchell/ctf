@@ -14,7 +14,7 @@ I took the approach of storing the results for all possible values of `n` in a f
 
 Here is my solution:
 
-``py
+```py
 from pwn import *
 
 # https://stackoverflow.com/questions/18172257/efficient-calculation-of-fibonacci-series
@@ -81,7 +81,8 @@ for i in range(100):
     print "[+] Response: ",response
     sh.recvuntil(": ")
     sh.sendline(response)
-``
+```
+
 Here is the output:
 
 ```console
