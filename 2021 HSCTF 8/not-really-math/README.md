@@ -117,3 +117,4 @@ Result of computation: 3768983385
 New expression:,  : b'flag{yknow_wh4t_3ls3_is_n0t_real1y_math?_c00l_m4th_games.com}'
 ```
 
+The flag is **flag{yknow_wh4t_3ls3_is_n0t_real1y_math?_c00l_m4th_games.com}**.
