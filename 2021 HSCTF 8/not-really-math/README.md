@@ -6,6 +6,63 @@ Have a warmup algo challenge.
 
 ## Solution ##
 
+See [not-really-math](not-really-math.pdf) for a description of the problem.
+
+Here is my solution:
+
+```py
+import re
+from pwn import *
+
+def get_result(example):
+    arr = re.split('(\d+)',example)
+    arr = arr[1:-1]
+
+    # Handle addtion
+    while len(arr) > 1 and 'a' in arr:
+        offset = 0
+        for i in range(len(arr)):
+            if arr[i-offset] == 'a':
+                expr = str( int(arr[i-1-offset]) + int(arr[i+1-offset]) )
+                arr = arr[:i-1-offset] + [expr] + arr[i+2-offset:] 
+                offset += 2
+            if 'a' not in arr:
+                break
+
+    # Handle multiplication
+    while len(arr) > 1:
+        offset = 0
+        for j in range(len(arr)):
+            if arr[j-offset] == 'm':
+                expr = str( int(arr[j-1-offset]) * int(arr[j+1-offset]) )
+                arr = arr[:j-1-offset] + [expr] + arr[j+2-offset:]
+                #print  arr
+                offset += 2
+
+    result = arr[0]
+    return result
+
+
+HOST = 'not-really-math.hsc.tf'
+PORT = 1337
+
+sh = remote(HOST,PORT)
+
+sh.recvline() # == proof-of-work: disabled ==
+for k in range(100):
+    expression = sh.recvline() #expression
+    print 'New expression:, ',expression.strip()
+    result = get_result(expression)
+    result = int(result)
+    result = result % (2**32 - 1)
+    result = str(result)
+    print "Result of computation:", result 
+    sh.sendline(result)
+    print "[+] Result sent!\n"
+```
+
+Here is the output:
+
 ```console
 root@osboxes:~/Downloads# python not-really-math.py 
 [+] Opening connection to not-really-math.hsc.tf on port 1337: Done
